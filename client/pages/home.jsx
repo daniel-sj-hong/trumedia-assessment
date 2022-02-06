@@ -53,7 +53,7 @@ export default class Home extends React.Component {
     return (
       <>
       <h1 onClick={this.getMlbPlayers}>hi</h1>
-      <h2 onClick={this.getMlbPlayer}>hello</h2>
+      <h2 onClick={this.getMlbPlayer} className="color">hello</h2>
       </>
     );
   }
