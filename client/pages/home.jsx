@@ -8,6 +8,7 @@ export default class Home extends React.Component {
       tempToken: ''
     };
     this.getMlbPlayers = this.getMlbPlayers.bind(this);
+    this.getMlbPlayer = this.getMlbPlayer.bind(this);
   }
 
   componentDidMount() {
@@ -35,10 +36,24 @@ export default class Home extends React.Component {
       .catch(err => console.error(err));
   }
 
+  getMlbPlayer() {
+    axios(`https://project.trumedianetworks.com/api/mlb/player/${this.state.mlbPlayers[0].playerId}`, {
+      headers: {
+        accept: 'application/json',
+        tempToken: this.state.tempToken
+      }
+    })
+      .then(result => {
+        console.log(result);
+      })
+      .catch(err => console.error(err));
+  }
+
   render() {
     return (
       <>
       <h1 onClick={this.getMlbPlayers}>hi</h1>
+      <h2 onClick={this.getMlbPlayer}>hello</h2>
       </>
     );
   }
