@@ -1,62 +1,15 @@
 import React from 'react';
-import axios from 'axios';
-export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mlbPlayers: [],
-      tempToken: ''
-    };
-    this.getMlbPlayers = this.getMlbPlayers.bind(this);
-    this.getMlbPlayer = this.getMlbPlayer.bind(this);
-  }
+import Header from '../components/header';
 
-  componentDidMount() {
-    axios.get('/api/mlb/token')
-      .then(results => {
-        console.log('this is results of componentDidMount: ', results);
-        this.setState({ tempToken: (results.data.token) });
-        console.log('this is this.state.tempToken after setState: ', this.state.tempToken);
-      })
-      .catch(err => console.error(err));
-  }
-
-  getMlbPlayers() {
-    axios('https://project.trumedianetworks.com/api/mlb/players', {
-      headers: {
-        accept: 'application/json',
-        tempToken: this.state.tempToken
-      }
-    })
-      .then(result => {
-        this.setState({ mlbPlayers: result.data });
-        console.log('this is the result of getMlbPlayers method:', result);
-        console.log('this is mlbPlayers: ', this.state.mlbPlayers);
-      })
-      .catch(err => console.error(err));
-  }
-
-  getMlbPlayer() {
-    axios(`https://project.trumedianetworks.com/api/mlb/player/${this.state.mlbPlayers[0].playerId}`, {
-      headers: {
-        accept: 'application/json',
-        tempToken: this.state.tempToken
-      }
-    })
-      .then(result => {
-        console.log(result);
-      })
-      .catch(err => console.error(err));
-  }
-
-  render() {
-    return (
+export default function Home(props) {
+  return (
       <>
-      <h1 onClick={this.getMlbPlayers}>hi</h1>
-      <h2 onClick={this.getMlbPlayer} className="color">hello</h2>
+        <Header />
+        <div className='row justify-center'>
+          <p>Please click on the menu button above<br />to see a player&apos;s stats!</p>
+        </div>
       </>
-    );
-  }
+  );
 }
 
 // const [mlbPlayers, setMlbPlayers] = useState([]);
