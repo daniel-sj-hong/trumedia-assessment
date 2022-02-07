@@ -67,7 +67,7 @@ export default class Header extends React.Component {
     const players = this.state.mlbPlayers;
     const { toggle } = this;
     const array = players.map(player =>
-      <li key={player.playerId}><a onClick={toggle} href="#">{player.fullName}</a></li>
+      <li key={player.playerId} className="list-item"><a onClick={toggle} href="#">{player.fullName}</a></li>
     );
 
     return (
@@ -83,7 +83,7 @@ export default class Header extends React.Component {
           <div onClick={this.toggle} className="background absolute"></div>
           <div className="app-drawer absolute row column align-center">
             <h2 className="remove-padding">Players</h2>
-            <ul>
+            <ul className="width-100">
               {array}
             </ul>
           </div>
