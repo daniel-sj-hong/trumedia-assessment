@@ -49,15 +49,15 @@ export default class Header extends React.Component {
     this.toggle();
   }
 
-  getMlbPlayer() {
-    axios(`https://project.trumedianetworks.com/api/mlb/player/${this.state.mlbPlayers[0].playerId}`, {
+  getMlbPlayer(e) {
+    axios(`https://project.trumedianetworks.com/api/mlb/player/${parseInt(e.target.getAttribute('playerid'))}`, {
       headers: {
         accept: 'application/json',
         tempToken: this.state.tempToken
       }
     })
       .then(result => {
-        console.log(result);
+        this.props.updatePlayerSeason(result.data);
       })
       .catch(err => console.error(err));
   }
@@ -65,9 +65,8 @@ export default class Header extends React.Component {
   render() {
 
     const players = this.state.mlbPlayers;
-    const { toggle } = this;
     const array = players.map(player =>
-      <li key={player.playerId} className="list-item"><a onClick={toggle} href="#">{player.fullName}</a></li>
+      <li key={player.playerId} className="list-item"><a onClick={this.getMlbPlayer} href={`#${player.fullName.replace(' ', '-')}`} playerid={player.playerId}>{player.fullName}</a></li>
     );
 
     return (

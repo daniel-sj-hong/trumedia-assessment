@@ -4,7 +4,7 @@ export default class BryceHarper extends React.Component {
   render() {
     return (
       <>
-      bryce harper
+        {JSON.stringify(this.props.playerSeason)}
       </>
     );
   }
