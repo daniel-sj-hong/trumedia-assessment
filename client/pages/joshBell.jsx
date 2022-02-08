@@ -4,7 +4,7 @@ export default class JoshBell extends React.Component {
   render() {
     return (
       <>
-      josh bell
+        {JSON.stringify(this.props.playerSeason)}
       </>
     );
   }

@@ -1,10 +1,8 @@
 import React from 'react';
-import Header from '../components/header';
 
 export default function Home(props) {
   return (
       <>
-        <Header />
         <div className='row justify-center'>
           <p>Please click on the menu button above<br />to see a player&apos;s stats!</p>
         </div>
