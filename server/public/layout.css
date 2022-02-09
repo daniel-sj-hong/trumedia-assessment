@@ -14,10 +14,22 @@
   position: absolute;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .column {
   flex-direction: column;
 }
 
 .width-100 {
   width: 100%;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+.col-half {
+  width: 50%;
 }
