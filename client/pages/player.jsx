@@ -7,13 +7,10 @@ export default class Player extends React.Component {
     super(props);
     this.state = {
       playerSeason: []
-
     };
-
   }
 
   componentDidMount() {
-
     axios.get(`https://project.trumedianetworks.com/api/mlb/player/${this.props.currentPlayer}`, {
       headers: {
         accept: 'application/json',
@@ -26,8 +23,23 @@ export default class Player extends React.Component {
       .catch(err => console.error(err));
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.currentPlayer !== prevProps.currentPlayer) {
+      axios.get(`https://project.trumedianetworks.com/api/mlb/player/${this.props.currentPlayer}`, {
+        headers: {
+          accept: 'application/json',
+          tempToken: this.context
+        }
+      })
+        .then(result => {
+          this.setState({ playerSeason: result.data });
+        })
+        .catch(err => console.error(err));
+    }
+  }
+
   render() {
-    console.log(this.props.currentPlayer);
+    console.log('this.props.currentPlayer: ', this.props.currentPlayer);
     return (
       <>
         {(this.state.playerSeason.length > 0)
