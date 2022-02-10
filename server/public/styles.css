@@ -15,12 +15,37 @@
   margin: 1rem;
 }
 
+.baseball-size {
+  height: 2em;
+  width: 2em;
+  margin-left: 9px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.width-height-background-border {
+  background-color: #c9e5eb;
+  border-radius: 15px;
+  width: 90%;
+  height: 10em;
+}
+
 .black {
   background-color: #24252a;
 }
 
-.white {
+.white-font {
   color: rgb(247, 241, 241);
+}
+
+.black-font {
+  color: #24252a;
 }
 
 .background {
@@ -53,7 +78,6 @@ ul {
 
 a {
   text-decoration: none;
-  color: black;
 }
 
 .list-item {
@@ -63,7 +87,7 @@ a {
 }
 
 li:hover {
-  background-color: #5f9aa4;
+  background-color: #6de7b9;
   transition: 0.5s;
 }
 
@@ -75,5 +99,9 @@ li:hover {
 @media screen and (min-width: 768px) {
   .header {
     justify-content: space-between;
+  }
+
+  .width-height-background-border {
+    width: 30%;
   }
 }
