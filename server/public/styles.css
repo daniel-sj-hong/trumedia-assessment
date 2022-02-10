@@ -29,6 +29,22 @@
   margin-top: 10px;
 }
 
+.remove-margin {
+  margin: 0;
+}
+
+.mobile-date-font {
+  font-size: 12px;
+}
+
+.mobile-width-30 {
+  width: 40%;
+}
+
+.mobile-width-70 {
+  width: 60%;
+}
+
 .width-height-background-border {
   background-color: #c9e5eb;
   border-radius: 15px;
@@ -96,6 +112,16 @@ li:hover {
   transition: all 0.5s;
 }
 
+th,
+td {
+  text-align: center;
+  padding: 3px 15px;
+}
+
+td {
+  border-bottom: 1px solid rgb(37, 56, 139);
+}
+
 @media screen and (min-width: 768px) {
   .header {
     justify-content: space-between;
@@ -103,5 +129,17 @@ li:hover {
 
   .width-height-background-border {
     width: 30%;
+  }
+
+  .mobile-width-30 {
+    width: 50%;
+  }
+
+  .mobile-width-70 {
+    width: 50%;
+  }
+
+  .mobile-date-font {
+    font-size: 15px;
   }
 }
