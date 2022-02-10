@@ -22,6 +22,10 @@
   flex-direction: column;
 }
 
+.col-80 {
+  width: 80%;
+}
+
 .width-100 {
   width: 100%;
 }
@@ -36,6 +40,14 @@
 
 .space-evenly {
   justify-content: space-evenly;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .col-half {
