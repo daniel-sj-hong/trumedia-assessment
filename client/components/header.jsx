@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiMenu } from 'react-icons/fi';
+import { GiBaseballBat } from 'react-icons/gi';
 import AppContext from '../lib/context';
 
 export default class Header extends React.Component {
@@ -21,8 +22,8 @@ export default class Header extends React.Component {
       <>
         <header>
           <div className="header row black">
-            <h1 className="white title"><a href="#">MLB Stats Tracker</a></h1>
-            <FiMenu className="align-center white hamburger" onClick={this.toggle}/>
+            <h1 className="title"><a href="#" className="white-font"><GiBaseballBat className="white-font" /> MLB Stats Tracker</a></h1>
+            <FiMenu className="white-font hamburger" onClick={this.toggle}/>
           </div>
         </header>
         {this.state.isModalOn &&
@@ -33,7 +34,7 @@ export default class Header extends React.Component {
             <ul className="width-100">
               {this.props.mlbPlayers.map(player =>
                 <li key={player.playerId} className="list-item">
-                  <a onClick={this.toggle}href={`#player?playerId=${player.playerId}`} playerid={player.playerId}>
+                  <a onClick={this.toggle} href={`#player?playerId=${player.playerId}`} playerid={player.playerId} className="black-font">
                     {player.fullName}
                   </a>
                 </li>

@@ -39,23 +39,35 @@ export default class Player extends React.Component {
   }
 
   render() {
-    console.log('this.props.currentPlayer: ', this.props.currentPlayer);
+    console.log('this.props: ', this.props);
+    console.log('this.state.playerSeason: ', this.state.playerSeason);
     return (
       <>
         {(this.state.playerSeason.length > 0)
-          ? <div className="row justify-center align-center">
-            <div className="col-half row justify-center">
-              <img src={this.state.playerSeason[0].playerImage} />
-            </div>
-            <div className="col-half row justify-center">
-              <h3>{this.state.playerSeason[0].fullName}</h3>
-              <div className="row">
-                <h5>{this.state.playerSeason[0].team}</h5>
+          ? <>
+              <div className="container row justify-center mt-20">
+                <div className="row align-center width-height-background-border">
+                  <div className="col-half row justify-center">
+                    <img src={this.state.playerSeason[0].playerImage} />
+                  </div>
+                  <div className="col-half">
+                    <div className="row justify-center align-center">
+                      <h3>{this.state.playerSeason[0].fullName}</h3>
+                    </div>
+                    <div className="row space-evenly justify-center align-center">
+                      <h4>{this.state.playerSeason[0].team}</h4>
+                      <img src={this.state.playerSeason[0].teamImage} />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          : <p>is Loading...</p>}
+              <div className="">
+                hello
+              </div>
+            </>
+
+          : <p className="row justify-center">Loading...</p>}
       </>
     );
   }
