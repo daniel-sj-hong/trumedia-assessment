@@ -34,22 +34,42 @@
 }
 
 .mobile-date-font {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .mobile-width-30 {
-  width: 40%;
+  width: 35%;
 }
 
 .mobile-width-70 {
-  width: 60%;
+  width: 65%;
 }
 
-.width-height-background-border {
-  background-color: #c9e5eb;
+.player-width-height-background-border {
+  background-color: #e9f0f1;
   border-radius: 15px;
   width: 90%;
   height: 10em;
+}
+
+.games-width-height-background-border {
+  background-color: #e4f1f5;
+  border-radius: 15px;
+  width: 90%;
+  height: 10em;
+}
+
+.container-background {
+  background-color: rgb(209, 230, 230);
+  width: 90%;
+  height: 550px;
+  border-radius: 15px;
+  overflow: scroll;
+}
+
+.container-background::-webkit-scrollbar {
+  height: 0;
+  width: 0;
 }
 
 .black {
@@ -127,8 +147,16 @@ td {
     justify-content: space-between;
   }
 
-  .width-height-background-border {
+  .container-background {
+    width: 35%;
+  }
+
+  .player-width-height-background-border {
     width: 30%;
+  }
+
+  .games-width-height-background-border {
+    width: 95%;
   }
 
   .mobile-width-30 {
