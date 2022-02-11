@@ -17,7 +17,7 @@ export default class Player extends React.Component {
     axios.get(`https://project.trumedianetworks.com/api/mlb/player/${this.props.currentPlayer}`, {
       headers: {
         accept: 'application/json',
-        tempToken: this.context
+        temptoken: this.context
       }
     })
       .then(result => {
@@ -31,7 +31,7 @@ export default class Player extends React.Component {
       axios.get(`https://project.trumedianetworks.com/api/mlb/player/${this.props.currentPlayer}`, {
         headers: {
           accept: 'application/json',
-          tempToken: this.context
+          temptoken: this.context
         }
       })
         .then(result => {
@@ -86,6 +86,8 @@ export default class Player extends React.Component {
   }
 
   render() {
+    console.log('current token', this.context);
+    console.log('this.props.currentPlayer: ', this.props.currentPlayer);
     return (
       <>
         {(this.state.playerSeason.length > 0)

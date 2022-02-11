@@ -11,7 +11,7 @@ export default class App extends React.Component {
     this.state = {
       route: parseRoute(window.location.hash),
       playerSeason: [],
-      tempToken: '',
+      temptoken: '',
       mlbPlayers: []
     };
     this.renderPage = this.renderPage.bind(this);
@@ -22,7 +22,7 @@ export default class App extends React.Component {
     axios.get('https://project.trumedianetworks.com/api/mlb/players', {
       headers: {
         accept: 'application/json',
-        tempToken: this.state.tempToken
+        temptoken: this.state.temptoken
       }
     })
       .then(result => {
@@ -34,9 +34,9 @@ export default class App extends React.Component {
   getToken() {
     axios.get('/api/mlb/token')
       .then(results => {
-        localStorage.setItem('tempToken', results.data.token);
+        localStorage.setItem('temptoken', results.data.token);
         localStorage.setItem('expires', results.data.expires);
-        this.setState({ tempToken: results.data.token }, this.getMlbPlayers);
+        this.setState({ temptoken: results.data.token }, this.getMlbPlayers);
       })
       .catch(err => console.error(err));
   }
@@ -45,12 +45,12 @@ export default class App extends React.Component {
     window.addEventListener('hashchange', () => {
       this.setState({ route: parseRoute(window.location.hash) }, () => {});
     });
-    if (!localStorage.getItem('tempToken')) {
+    if (!localStorage.getItem('temptoken')) {
       this.getToken();
     } else if (Date.now() > Date.parse(localStorage.getItem('expires'))) {
       this.getToken();
     } else {
-      this.setState({ tempToken: localStorage.getItem('tempToken') }, this.getMlbPlayers);
+      this.setState({ temptoken: localStorage.getItem('temptoken') }, this.getMlbPlayers);
     }
   }
 
@@ -65,7 +65,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const tokenContext = this.state.tempToken;
+    const tokenContext = this.state.temptoken;
     return (
       <AppContext.Provider value={tokenContext}>
        <Header mlbPlayers={this.state.mlbPlayers} />
