@@ -171,7 +171,9 @@ export default class Player extends React.Component {
               </div>
             </>
 
-          : <p className="row justify-center">Loading...</p>}
+          : <div className="row justify-center mt-20">
+              <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>}
       </>
     );
   }
