@@ -57,7 +57,6 @@ export default class Player extends React.Component {
       TB += this.state.playerSeason[i].TB;
     }
     const ops = (AB * (H + BB + HBP) + TB * (AB + BB + SF + HBP)) / (AB * (AB + BB + SF + HBP));
-    // const trueOps = Number(stringTrueOps);
     return ops.toFixed(3);
   }
 
@@ -73,8 +72,6 @@ export default class Player extends React.Component {
   }
 
   render() {
-    console.log('this.state.playerSeason: ', this.state.playerSeason);
-    console.log('this.ops: ', this.ops());
     return (
       <>
         {(this.state.playerSeason.length > 0)
@@ -117,46 +114,43 @@ export default class Player extends React.Component {
                           <h3 className="remove-margin mobile-date-font">Game Date: {format(parse(player.gameDate, 'yyyy-MM-dd HH:mm:ss', new Date()), 'MM/dd/yyyy')}</h3>
                           </div>
                         </div>
-                        {/* <div className="mobile-width-70 height-100 row justify-center"> */}
-                          <table className="mobile-width-70 height-100 row justify-center align-center">
-                            <tbody>
-                              <tr>
-                                <th>PA:</th>
-                                <td>{player.PA}</td>
-                                <th>K:</th>
-                                <td>{player.K}</td>
-                              </tr>
-                              <tr>
-                                <th>AB:</th>
-                                <td>{player.AB}</td>
-                                <th>HBP:</th>
-                                <td>{player.HBP}</td>
-                              </tr>
-                              <tr>
-                                <th>H:</th>
-                                <td>{player.H}</td>
-                                <th>SF:</th>
-                                <td>{player.SF}</td>
-                              </tr>
-                              <tr>
-                                <th>HR:</th>
-                                <td>{player.HR}</td>
-                                <th>TB:</th>
-                                <td>{player.TB}</td>
-                              </tr>
-                              <tr>
-                                <th>BB:</th>
-                                <td>{player.BB}</td>
-                                <th>RBI:</th>
-                                <td>{player.RBI}</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        {/* </div> */}
+                        <table className="mobile-width-70 height-100 row justify-center align-center">
+                          <tbody>
+                            <tr>
+                              <th>PA:</th>
+                              <td>{player.PA}</td>
+                              <th>K:</th>
+                              <td>{player.K}</td>
+                            </tr>
+                            <tr>
+                              <th>AB:</th>
+                              <td>{player.AB}</td>
+                              <th>HBP:</th>
+                              <td>{player.HBP}</td>
+                            </tr>
+                            <tr>
+                              <th>H:</th>
+                              <td>{player.H}</td>
+                              <th>SF:</th>
+                              <td>{player.SF}</td>
+                            </tr>
+                            <tr>
+                              <th>HR:</th>
+                              <td>{player.HR}</td>
+                              <th>TB:</th>
+                              <td>{player.TB}</td>
+                            </tr>
+                            <tr>
+                              <th>BB:</th>
+                              <td>{player.BB}</td>
+                              <th>RBI:</th>
+                              <td>{player.RBI}</td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   )}
-
                 </div>
               </div>
             </>

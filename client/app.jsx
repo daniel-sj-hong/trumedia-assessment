@@ -28,8 +28,6 @@ export default class App extends React.Component {
     })
       .then(result => {
         this.setState({ mlbPlayers: result.data });
-        // console.log('this is the result of getMlbPlayers method:', result);
-        // console.log('this is mlbPlayers: ', this.state.mlbPlayers);
       })
       .catch(err => console.error(err));
   }
@@ -43,21 +41,17 @@ export default class App extends React.Component {
 
     axios.get('/api/mlb/token')
       .then(results => {
-        // console.log('this is the results of componentDidMount: ', results);
         this.setState({ tempToken: results.data.token }, this.getMlbPlayers);
-        // console.log('this is this.state.tempToken: ', this.state.tempToken);
       })
       .catch(err => console.error(err));
   }
 
   updatePlayerSeason(playerSeason) {
     this.setState({ playerSeason: playerSeason });
-    // console.log('this is this.state.playerSeason after setState: ', this.state.playerSeason);
   }
 
   renderPage() {
     const { route } = this.state;
-    // console.log('route: ', route);
     if (route.path === '') {
       return <Home />;
     }
