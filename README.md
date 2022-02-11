@@ -7,6 +7,8 @@ A web application for people that want to see the stats of MLB players.
 
 ### Click on a player's name to see their information
 ![Player](https://user-images.githubusercontent.com/80491609/153676939-02d650b3-3351-469b-9d6e-1882032996e5.gif)
+![Player]![Animation4](https://user-images.githubusercontent.com/80491609/153677689-ab9725f0-867e-4e31-9d38-2c64ca2589a1.gif)
+
 
 ### Scrolling through to see the stats for player for each individual game of that season
 ![Scrolling](https://user-images.githubusercontent.com/80491609/153676988-543819f4-c805-437b-8175-f2f8bb732611.gif)
