@@ -9,6 +9,8 @@ export default class Player extends React.Component {
     this.state = {
       playerSeason: []
     };
+    this.ops = this.ops.bind(this);
+    this.avg = this.avg.bind(this);
   }
 
   componentDidMount() {
@@ -39,8 +41,40 @@ export default class Player extends React.Component {
     }
   }
 
+  ops() {
+    let H = 0;
+    let BB = 0;
+    let HBP = 0;
+    let AB = 0;
+    let SF = 0;
+    let TB = 0;
+    for (let i = 0; i < this.state.playerSeason.length; i++) {
+      H += this.state.playerSeason[i].H;
+      BB += this.state.playerSeason[i].BB;
+      HBP += this.state.playerSeason[i].HBP;
+      AB += this.state.playerSeason[i].AB;
+      SF += this.state.playerSeason[i].SF;
+      TB += this.state.playerSeason[i].TB;
+    }
+    const ops = (AB * (H + BB + HBP) + TB * (AB + BB + SF + HBP)) / (AB * (AB + BB + SF + HBP));
+    // const trueOps = Number(stringTrueOps);
+    return ops.toFixed(3);
+  }
+
+  avg() {
+    let H = 0;
+    let AB = 0;
+    for (let i = 0; i < this.state.playerSeason.length; i++) {
+      H += this.state.playerSeason[i].H;
+      AB += this.state.playerSeason[i].AB;
+    }
+    const avg = H / AB;
+    return avg.toFixed(3);
+  }
+
   render() {
     console.log('this.state.playerSeason: ', this.state.playerSeason);
+    console.log('this.ops: ', this.ops());
     return (
       <>
         {(this.state.playerSeason.length > 0)
@@ -57,6 +91,10 @@ export default class Player extends React.Component {
                     <div className="row space-evenly justify-center align-center">
                       <h4>{this.state.playerSeason[0].team}</h4>
                       <img src={this.state.playerSeason[0].teamImage} />
+                    </div>
+                    <div className="row space-evenly justify-center align-center">
+                      <h2 className="remove-margin">AVG: {this.avg()}</h2>
+                    <h2 className="remove-margin">OPS: {this.ops()}</h2>
                     </div>
                   </div>
                 </div>
