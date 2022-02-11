@@ -36,5 +36,6 @@ A web application for people that want to see the stats of MLB players.
 ## Getting Started
 
 1. Fork this repository.
-2. Install dependencies. npm i
-3. npm run dev
+2. Install dependencies. 
+```npm i```
+4. ```npm run dev```
