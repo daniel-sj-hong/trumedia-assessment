@@ -93,19 +93,21 @@ export default class Player extends React.Component {
               <div className="container row justify-center mt-20">
                 <div className="row align-center player-width-height-background-border">
                   <div className="col-half row justify-center">
-                    <img src={this.state.playerSeason[0].playerImage} />
+                    <div className="circle justify-center align-center row">
+                      <img src={this.state.playerSeason[0].playerImage} className="border-radius" />
+                    </div>
                   </div>
                   <div className="col-half">
                     <div className="row justify-center align-center">
-                      <h2>{this.state.playerSeason[0].fullName}</h2>
+                      <h3>{this.state.playerSeason[0].fullName}</h3>
                     </div>
                     <div className="row space-evenly justify-center align-center">
                       <h4>{this.state.playerSeason[0].team}</h4>
                       <img src={this.state.playerSeason[0].teamImage} />
                     </div>
                     <div className="row space-evenly justify-center align-center">
-                      <h2 className="remove-margin">AVG: {this.avg()}</h2>
-                    <h2 className="remove-margin">OPS: {this.ops()}</h2>
+                      <h3 className="remove-margin">AVG: {this.avg()}</h3>
+                      <h3 className="remove-margin">OPS: {this.ops()}</h3>
                     </div>
                   </div>
                 </div>
