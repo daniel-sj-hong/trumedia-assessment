@@ -21,7 +21,7 @@ export default class Header extends React.Component {
     return (
       <>
         <header>
-          <div className="header row black height-100 align-center">
+          <div className="header row black">
             <h1 className="title"><a href="#" className="white-font"><GiBaseballBat className="white-font" /> MLB Stats Tracker</a></h1>
             <FiMenu className="white-font hamburger" onClick={this.toggle}/>
           </div>
