@@ -124,6 +124,17 @@ a {
   list-style: none;
   padding: 10px 0;
   text-align: center;
+  animation: slide-up 1s ease;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(90px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 li:hover {
