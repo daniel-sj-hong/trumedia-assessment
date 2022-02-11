@@ -86,8 +86,6 @@ export default class Player extends React.Component {
   }
 
   render() {
-    console.log('current token', this.context);
-    console.log('this.props.currentPlayer: ', this.props.currentPlayer);
     return (
       <>
         {(this.state.playerSeason.length > 0)
