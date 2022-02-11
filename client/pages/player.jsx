@@ -57,7 +57,14 @@ export default class Player extends React.Component {
       TB += this.state.playerSeason[i].TB;
     }
     const ops = (AB * (H + BB + HBP) + TB * (AB + BB + SF + HBP)) / (AB * (AB + BB + SF + HBP));
-    return ops.toFixed(3);
+    const truncate = ops.toFixed(3);
+    let trueOps = '';
+    for (let i = 0; i < truncate.length; i++) {
+      if (truncate[i] !== '0') {
+        trueOps += truncate[i];
+      }
+    }
+    return trueOps;
   }
 
   avg() {
@@ -68,7 +75,14 @@ export default class Player extends React.Component {
       AB += this.state.playerSeason[i].AB;
     }
     const avg = H / AB;
-    return avg.toFixed(3);
+    const truncate = avg.toFixed(3);
+    let trueAvg = '';
+    for (let i = 0; i < truncate.length; i++) {
+      if (truncate[i] !== '0') {
+        trueAvg += truncate[i];
+      }
+    }
+    return trueAvg;
   }
 
   render() {

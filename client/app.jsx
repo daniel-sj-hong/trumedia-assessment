@@ -15,12 +15,11 @@ export default class App extends React.Component {
       mlbPlayers: []
     };
     this.renderPage = this.renderPage.bind(this);
-    this.updatePlayerSeason = this.updatePlayerSeason.bind(this);
     this.getMlbPlayers = this.getMlbPlayers.bind(this);
   }
 
   getMlbPlayers() {
-    axios('https://project.trumedianetworks.com/api/mlb/players', {
+    axios.get('https://project.trumedianetworks.com/api/mlb/players', {
       headers: {
         accept: 'application/json',
         tempToken: this.state.tempToken
@@ -32,22 +31,27 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
-  componentDidMount() {
-    window.addEventListener('hashchange', () => {
-      this.setState({ route: parseRoute(window.location.hash) }, () => {
-      }
-      );
-    });
-
+  getToken() {
     axios.get('/api/mlb/token')
       .then(results => {
+        localStorage.setItem('tempToken', results.data.token);
+        localStorage.setItem('expires', results.data.expires);
         this.setState({ tempToken: results.data.token }, this.getMlbPlayers);
       })
       .catch(err => console.error(err));
   }
 
-  updatePlayerSeason(playerSeason) {
-    this.setState({ playerSeason: playerSeason });
+  componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      this.setState({ route: parseRoute(window.location.hash) }, () => {});
+    });
+    if (!localStorage.getItem('tempToken')) {
+      this.getToken();
+    } else if (Date.now() > Date.parse(localStorage.getItem('expires'))) {
+      this.getToken();
+    } else {
+      this.setState({ tempToken: localStorage.getItem('tempToken') }, this.getMlbPlayers);
+    }
   }
 
   renderPage() {
