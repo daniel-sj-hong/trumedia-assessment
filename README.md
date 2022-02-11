@@ -3,13 +3,13 @@
 A web application for people that want to see the stats of MLB players.
 
 ### Click on the drawer to see list of players
-![Drawer](![Animation1](https://user-images.githubusercontent.com/80491609/153676869-bab75ada-9cc4-4819-b6f0-174cf9cebf3f.gif))
+![Drawer](https://user-images.githubusercontent.com/80491609/153676869-bab75ada-9cc4-4819-b6f0-174cf9cebf3f.gif)
 
 ### Click on a player's name to see their information
-![Player](![Animation2](https://user-images.githubusercontent.com/80491609/153676939-02d650b3-3351-469b-9d6e-1882032996e5.gif))
+![Player](https://user-images.githubusercontent.com/80491609/153676939-02d650b3-3351-469b-9d6e-1882032996e5.gif)
 
 ### Scrolling through to see the stats for player for each individual game of that season
-![Scrolling](![Animation3](https://user-images.githubusercontent.com/80491609/153676988-543819f4-c805-437b-8175-f2f8bb732611.gif))
+![Scrolling](https://user-images.githubusercontent.com/80491609/153676988-543819f4-c805-437b-8175-f2f8bb732611.gif)
 
 
 ## Technologies
