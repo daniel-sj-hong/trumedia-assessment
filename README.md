@@ -2,6 +2,8 @@
 
 A web application for people that want to see the stats of MLB players.
 
+[Live Demo](https://mlb-stats-tracker.herokuapp.com/#)
+
 ### Click on the drawer to see list of players
 ![Drawer](https://user-images.githubusercontent.com/80491609/153676869-bab75ada-9cc4-4819-b6f0-174cf9cebf3f.gif)
 
@@ -35,7 +37,8 @@ A web application for people that want to see the stats of MLB players.
 
 ## Getting Started
 
-1. Fork this repository.
-2. Install dependencies. 
+1. Fork this repository or clone the respository 
+```git clone git@github.com:daniel-sj-hong/trumedia-assessment.git``` 
+3. Install dependencies. 
 ```npm i```
-4. ```npm run dev```
+3. ```npm run dev```
