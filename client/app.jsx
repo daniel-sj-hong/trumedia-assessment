@@ -11,7 +11,7 @@ export default class App extends React.Component {
     this.state = {
       route: parseRoute(window.location.hash),
       playerSeason: [],
-      temptoken: '',
+      temptoken: localStorage.getItem('temptoken'),
       mlbPlayers: []
     };
     this.renderPage = this.renderPage.bind(this);
@@ -45,12 +45,13 @@ export default class App extends React.Component {
     window.addEventListener('hashchange', () => {
       this.setState({ route: parseRoute(window.location.hash) }, () => {});
     });
-    if (!localStorage.getItem('temptoken')) {
+    const temptoken = localStorage.getItem('temptoken');
+    if (!temptoken) {
       this.getToken();
     } else if (Date.now() > Date.parse(localStorage.getItem('expires'))) {
       this.getToken();
     } else {
-      this.setState({ temptoken: localStorage.getItem('temptoken') }, this.getMlbPlayers);
+      this.getMlbPlayers();
     }
   }
 
